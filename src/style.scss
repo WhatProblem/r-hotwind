@@ -1,0 +1,52 @@
+html,
+body {
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    margin: 0;
+    background: #fff;
+}
+
+#root {
+    width: 100%;
+    height: 100%;
+}
+
+input,
+button,
+select,
+textarea {
+    outline: none;
+    -webkit-appearance: none;
+    border-radius: 0;
+}
+
+input::-webkit-input-placeholder {
+    color: #aab2bd;
+    font-size: 12px;
+    text-align: left;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+    margin: 0;
+    padding: 0;
+}
+
+ul,
+li,
+ol {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+    color: #bfcbd9;
+}
