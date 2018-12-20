@@ -1,40 +1,35 @@
 import React from 'react';
-import { Route, Redirect } from 'react-router-dom';
+import { Route, Redirect } from "react-router-dom";
+import NotFound from '../view/notfound/NotFound';
 
-export class Auth extends React.Component {
+export default class Auth extends React.Component {
     constructor(props) {
         super(props);
+        this.state = {
+
+        }
     }
+
     render() {
-        console.log(this.props)
-        const { location, config } = this.props;
+        // console.log(this.props);
+        const { location, routes } = this.props;
         const { pathname } = location;
         const isLogin = localStorage.getItem('myToken');
-
-        const targetRouterConfig = config.find(v => v.path === pathname);
-        if (targetRouterConfig && !targetRouterConfig.auth && !isLogin) {
-            const { component } = targetRouterConfig;
-            return <Route exact path={pathname}
-                component={component}
-            />
+        // console.log(pathname)
+        // console.log(routes)
+        const targetRotuerConfig = routes.find(v => v.path === pathname);
+        // console.log(targetRotuerConfig);
+        if (targetRotuerConfig && targetRotuerConfig.auth && isLogin) {
+            const { component } = targetRotuerConfig;
+            // return <Route exact path={pathname} component={component} />
+            return <Route exact path={pathname} render={props=><targetRotuerConfig.component {...targetRotuerConfig} />} />
         }
-
         if (isLogin) {
             if (pathname === '/login') {
                 return <Redirect to="/" />
-            } else {
-                console.log(11111111111111111111111111);
-                console.log(targetRouterConfig)
-                if (targetRouterConfig) {
-                    return <Route path={pathname}
-                        component={targetRouterConfig.component}
-                    />
-                } else {
-                    return <Redirect to='/404' />
-                }
             }
         } else {
-            if (targetRouterConfig && targetRouterConfig.auth) {
+            if (targetRotuerConfig&&targetRotuerConfig.auth) {
                 return <Redirect to="/login" />
             } else {
                 return <Redirect to="/404" />
@@ -42,5 +37,3 @@ export class Auth extends React.Component {
         }
     }
 }
-
-// https://blog.csdn.net/zwkkkk1/article/details/83411071

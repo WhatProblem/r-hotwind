@@ -1,11 +1,8 @@
 import Main from '../view/main/Main';
-import Login from '../view/login/Login';
-import NotFound from '../view/notFound/NotFound';
+import NotFound from '../view/notfound/NotFound';
 import Home from '../view/home/Home';
-import Settings from '../view/Settings/Settings';
-import ProductInfo from '../view/productInfo/ProductInfo';
 
-export const routerConfig = [
+const routes = [
     {
         path: '/',
         component: Main,
@@ -22,21 +19,14 @@ export const routerConfig = [
             },
             {
                 path: '/main/settings',
-                component: Settings
-            },
-            {
-                path: '/main/productInfo',
-                component: ProductInfo
+                component: Home
             }
         ]
     },
     {
-        path: '/login',
-        component: Login
-    },
-    {
         path: '/404',
         component: NotFound
-    }
-]
+    },
+];
 
+export default routes;

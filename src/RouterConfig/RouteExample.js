@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Route } from "react-router-dom";
+import { BrowserRouter as Router, Route, Redirect } from "react-router-dom";
 
 import routes from './routes';
 
@@ -16,10 +16,10 @@ export default class RouteExample extends React.Component {
             <Router>
                 <div>
                     {
-                        routes.map((route, i) => <Route
-                            key={i}
-                            path={route.path}
-                            render={props => (<route.component {...props} routes={route.routes} />)} />)
+                        routes.map((route, i) => (<Route
+                        key={i}
+                        path={route.path}
+                        render={props => (<route.component {...props} routes={route.routes} />)} />))
                     }
                 </div>
             </Router>

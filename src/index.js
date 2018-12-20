@@ -3,16 +3,16 @@ import ReactDOM from 'react-dom';
 
 import './myIcon.css';
 import './style.scss';
-// import AppRouter from './app/router/Router';
+import AppRouter from './app/router/AppRouter';
 
 // import RouteConfigExample from './RouterConfig/RouterConfig';
 
 import RouteExample from './RouterConfig/RouteExample';
 
 ReactDOM.render(
-    // <AppRouter />,
+    <AppRouter />,
     // <RouteConfigExample/>,
-    <RouteExample/>,
+    // <RouteExample/>,
     document.getElementById('root')
 )
 
