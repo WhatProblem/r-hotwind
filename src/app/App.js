@@ -15,7 +15,7 @@ export default class App extends React.Component {
     render() {
         return (
             <Router>
-                <div>
+                <div className="app">
                     <Switch>
                         {routes.map((route, i) => <MainConfig key={i} {...route} />)}
                         <Redirect from="/" to="/main" />

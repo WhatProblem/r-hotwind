@@ -1,5 +1,7 @@
 import React from 'react';
-import { Link, NavLink } from "react-router-dom";
+import { NavLink } from "react-router-dom";
+
+import './sidebar.scss';
 
 export default class Sidebar extends React.Component {
     constructor(props) {
@@ -10,8 +12,9 @@ export default class Sidebar extends React.Component {
     }
     render() {
         return (
-            <div>
-                
+            <div className="navLists">
+                <NavLink to="/main/home" className="nav" activeClassName="selected">home</NavLink>
+                <NavLink to="/main/setting" className="nav" activeClassName="selected">setting</NavLink>
             </div>
         )
     }
