@@ -1,32 +1,27 @@
-import Main from '../view/main/Main';
-import NotFound from '../view/notfound/NotFound';
-import Home from '../view/home/Home';
+import Main from './view/main/Main';
+import NotFound from './view/notfound/NotFound';
+import Home from './view/home/Home';
+import Setting from './view/setting/Setting';
 
 const routes = [
     {
-        path: '/',
-        component: Main,
-        auth: true
-    },
-    {
         path: '/main',
         component: Main,
-        auth: true,
         routes: [
             {
                 path: '/main/home',
                 component: Home
             },
             {
-                path: '/main/settings',
-                component: Home
+                path: '/main/setting',
+                component: Setting
             }
         ]
     },
     {
         path: '/404',
         component: NotFound
-    },
+    }
 ];
 
 export default routes;

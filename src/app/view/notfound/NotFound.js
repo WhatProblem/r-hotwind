@@ -7,9 +7,10 @@ export default class NotFound extends React.Component {
 
         }
     }
+
     render() {
         return (
-            <div>404,页面找不到了！</div>
-        );
+            <div>404,页面未找到！</div>
+        )
     }
 }

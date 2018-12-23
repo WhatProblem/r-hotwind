@@ -1,6 +1,7 @@
 import React from 'react';
+import { Link, NavLink } from "react-router-dom";
 
-export default class Home extends React.Component {
+export default class Sidebar extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -9,7 +10,9 @@ export default class Home extends React.Component {
     }
     render() {
         return (
-            <div>home</div>
+            <div>
+                
+            </div>
         )
     }
 }
