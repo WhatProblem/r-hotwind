@@ -1,0 +1,40 @@
+.home {
+    width: 100%;
+    height: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+    background: #f0f0f0;
+    .homeTitle {
+        width: 100%;
+        height: 30px;
+        line-height: 30px;
+        text-align: left;
+        font-size: 14px;
+        color: #666;
+    }
+    .addForms {
+        width: 100%;
+        height: 100%;
+        .inputForm {
+            width: 200px;
+            height: 32px;
+            border: 1px solid #dcdfe6;
+            border-radius: 5px;
+            display: block;
+            margin: 10px;
+            padding: 0 15px;
+            box-sizing: border-box;
+        }
+        .subBtn {
+            width: 200px;
+            height: 32px;
+            text-align: center;
+            line-height: 32px;
+            font-size: 16px;
+            color: #fff;
+            background: #409eff;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    }
+}

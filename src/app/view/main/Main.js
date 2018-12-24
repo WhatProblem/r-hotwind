@@ -19,6 +19,7 @@ export default class Main extends React.Component {
         const { routes } = this.props;
         return (
             <div className="main">
+                <div className="navbar"></div>
                 <div className="sidebar">
                     <Sidebar />
                 </div>
