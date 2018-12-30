@@ -1,0 +1,26 @@
+.select {
+    width: 200px;
+    height: 32px;
+    position: relative;
+    .downArrow {
+        width: 30px;
+        height: 32px;
+        position: absolute;
+        top: 0;
+        right: 0;
+        text-align: center;
+        line-height: 32px;
+        z-index: 0;
+    }
+    .myselect {
+        width: 200px;
+        height: 32px;
+        border: 1px solid #dcdfe6;
+        border-radius: 5px;
+        display: block;
+        padding: 0 15px;
+        box-sizing: border-box;
+        position: relative;
+        z-index: 99;
+    }
+}

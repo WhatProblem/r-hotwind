@@ -13,28 +13,84 @@
         color: #666;
     }
     .addForms {
-        width: 100%;
-        height: 100%;
-        .inputForm {
-            width: 200px;
-            height: 32px;
-            border: 1px solid #dcdfe6;
-            border-radius: 5px;
-            display: block;
-            margin: 10px;
-            padding: 0 15px;
-            box-sizing: border-box;
+        width: 870px;
+        &::after{
+            display: table;
+            content: '';
+            clear: both;
         }
-        .subBtn {
-            width: 200px;
+        .labelOption {
+            float: left;
+            width: 270px;
             height: 32px;
-            text-align: center;
-            line-height: 32px;
-            font-size: 16px;
-            color: #fff;
+            margin: 10px;
+            display: flex;
+            justify-content: flex-end;
+            .productsort {
+                width: 200px;
+                height: 32px;
+                border: 1px solid #dcdfe6;
+                border-radius: 5px;
+                display: block;
+                position: relative;
+                .downArrow {
+                    width: 30px;
+                    height: 32px;
+                    font-size: 16px;
+                    position: absolute;
+                    top: 0;
+                    right: 0;
+                    text-align: center;
+                    line-height: 32px;
+                    z-index: 1;
+                }
+                .productOption {
+                    width: 100%;
+                    height: 100%;
+                    line-height: 32px;
+                    padding: 0 15px;
+                    box-sizing: border-box;
+                    position: relative;
+                    z-index: 99;
+                }
+            }
+            .labelTitle {
+                font-size: 12px;
+                color: #666;
+                height: 32px;
+                line-height: 32px;
+                overflow: hidden;
+            }
+            .inputForm {
+                width: 200px;
+                height: 32px;
+                border: 1px solid #dcdfe6;
+                border-radius: 5px;
+                display: block; // margin: 10px;
+                padding: 0 15px;
+                box-sizing: border-box;
+                &:disabled {
+                    cursor: not-allowed;
+                }
+            }
+        }
+    }
+    .subBtn {
+        display: flex;
+        width: 270px;
+        height: 32px;
+        justify-content: center;
+        line-height: 32px;
+        font-size: 14px;
+        color: #fff;
+        background: #093969;
+        border-radius: 5px;
+        cursor: pointer;
+        margin-top: 20px;
+        margin-left: 300px;
+        transition: background 0.2s;
+        &:hover {
             background: #409eff;
-            border-radius: 5px;
-            cursor: pointer;
         }
     }
 }

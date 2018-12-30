@@ -9,7 +9,7 @@ export default class MainConfig extends React.Component {
         }
     }
     render() {
-        console.log(this.props)
+        // console.log(this.props)
         const route = this.props;
         const { location } = this.props;
         const { pathname } = location;
