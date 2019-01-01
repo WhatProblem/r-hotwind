@@ -4,6 +4,12 @@
     padding: 10px;
     box-sizing: border-box;
     background: #f0f0f0;
+    input::-webkit-inner-spin-button {
+        visibility: hidden;
+    }
+    input::-webkit-clear-button {
+        // visibility: hidden;
+    }
     .homeTitle {
         width: 100%;
         height: 30px;
@@ -14,7 +20,7 @@
     }
     .addForms {
         width: 870px;
-        &::after{
+        &::after {
             display: table;
             content: '';
             clear: both;

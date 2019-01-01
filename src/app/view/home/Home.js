@@ -1,6 +1,7 @@
 import React from 'react';
 import axios from 'axios';
 import http from '../../http/http';
+import dealTime from '../../../utils/dateTime';
 
 import Myselect from '../../components/Myselect/Myselect';
 
@@ -20,26 +21,11 @@ export default class Home extends React.Component {
             productUnit: '', // 商品单位
             productColor: '', // 商品颜色
             productSize: '', // 商品尺寸
-            productTotals: 0, // 商品入库数量
+            productTotals: '', // 商品入库数量
             putStockTime: '', // 商品入库时间
             productDiscount: 'false', // 商品是否折扣
             discountStart: '', // 折扣开始时间
             discountEnd: '', // 折扣结束时间
-            data: {
-                category_type: 'GIRL_CLOTHE',
-                category_name: '女装',
-                product_type: 'T_SHIRT',
-                product_type_name: 'T恤',
-                product_name: '夏季清凉T恤',
-                product_price: '119',
-                product_unit: '件',
-                product_color: '白色',
-                product_size: 'L',
-                product_totals: 60,
-                put_stock_time: '2018-12-26 16:23:49',
-                product_stock: 60,
-                product_discount: 'false'
-            },
         }
         this.handleChange = this.handleChange.bind(this);
         this.changeProduct = this.changeProduct.bind(this);
@@ -83,13 +69,30 @@ export default class Home extends React.Component {
     }
 
     submit() {
-        console.log(this.state);
+        let params = {
+            category_type: this.state.sortItem.category_type,
+            category_name: this.state.sortItem.category_name,
+            product_type: this.state.productItem.product_type,
+            product_type_name: this.state.productItem.product_type_name,
+            product_name: this.state.productName,
+            product_price: this.state.productPrice,
+            product_unit: this.state.productUnit,
+            product_color: this.state.productColor,
+            product_size: this.state.productSize,
+            product_totals: this.state.productTotals,
+            put_stock_time: dealTime.translateLocal(this.state.putStockTime),
+            product_stock: this.state.productTotals,
+            product_discount: 'false'
+        }
+        http.post('/addProduct', params).then((res) => {
+            console.log(res);
+        })
     }
 
     componentDidMount() {
         console.log('组件挂载');
         let self = this;
-        http.get('/getCategory').then((res)=>{
+        http.get('/getCategory').then((res) => {
             console.log(res);
             if (res.data.status == 200) {
                 self.setState({
@@ -99,7 +102,7 @@ export default class Home extends React.Component {
                     productItem: res.data.data[0]['product'][0]
                 })
             }
-        }).catch((err)=>{
+        }).catch((err) => {
             console.log(err)
         })
     }
@@ -195,7 +198,7 @@ export default class Home extends React.Component {
                     </div>
                     <div className="labelOption">
                         <div className="labelTitle">入库时间：</div>
-                        <input className="inputForm" type="text" name="putStockTime" value={this.state.putStockTime} onChange={this.handleChange} />
+                        <input className="inputForm" type="datetime-local" name="putStockTime" value={this.state.putStockTime} onChange={this.handleChange} />
                     </div>
                     <div className="labelOption">
                         <div className="labelTitle">打折优惠：</div>
@@ -206,11 +209,11 @@ export default class Home extends React.Component {
                     </div>
                     <div className="labelOption">
                         <div className="labelTitle">折扣开始：</div>
-                        <input className="inputForm" disabled={this.state.productDiscount == 'true' ? false : true} type="text" name="discountStart" value={this.state.discountStart} onChange={this.handleChange} />
+                        <input className="inputForm" disabled={this.state.productDiscount == 'true' ? false : true} type="datetime-local" name="discountStart" value={this.state.discountStart} onChange={this.handleChange} />
                     </div>
                     <div className="labelOption">
                         <div className="labelTitle">折扣终止：</div>
-                        <input className="inputForm" disabled={this.state.productDiscount == 'true' ? false : true} type="text" name="discountEnd" value={this.state.discountEnd} onChange={this.handleChange} />
+                        <input className="inputForm" disabled={this.state.productDiscount == 'true' ? false : true} type="datetime-local" name="discountEnd" value={this.state.discountEnd} onChange={this.handleChange} />
                     </div>
                 </div>
                 <button className="subBtn" onClick={this.submit}>提交</button>
